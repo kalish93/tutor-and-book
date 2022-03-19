@@ -11,13 +11,12 @@ At the end, we will  have a big size system with many experianced tutorial provi
 2. if the user role is Tutor, then he can create a class (classes ) any time and see the dashboard. after students apply and join his class, he can create a chatroom inside the dashboard that serve as a communication in that class. all the resourse posted by this tutor to the platform will be fetched and displayed to his class dashboard. plus he can upload other materials(like assignment) exclusively to his class dashboard. messages posted in the chatroom can be deleted or updated either by the tutor or the one who post it.
 
 Group Members
-
-1. Kaleab Tekalign -> UGR/3664/12 -> section 2
-2. Gizaw Dagne     -> UGR/6640/12 -> section 2
-
-3. Metsnanat Asfaw -> UGR/7631/12 -> section 1
-4. Melat Mesele ->UGR/9429/12  -> SECTION 1
-
+#Name                #ID
+1. Kaleab Tekalign  UGR/3664/12   section 2
+2. Gizaw Dagne      UGR/6640/12   section 2
+3. Metsnanat Asfaw  UGR/7631/12    section 1
+4. Melat Mesele     UGR/9429/12    section 1
+5.Hayat Tofik       UGR/2987/12    section 2
 
 
 
