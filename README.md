@@ -16,6 +16,7 @@ Group Members
 2. Gizaw Dagne     -> UGR/6640/12 -> section 2
 
 3. Metsnanat Asfaw -> UGR/7631/12 -> section 1
+4. Melat Mesele ->UGR/9429/12  -> SECTION 1
 
 
 
