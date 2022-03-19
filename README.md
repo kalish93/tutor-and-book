@@ -4,10 +4,10 @@ At the end, we will  have a big size system with many experianced tutorial provi
 
 
 ### business features:  
-1 Post Books and course materials including exam sheet:
---Admin and Tutor posts important resourse (books and exam sheet) with short description attached.
+1. Post Books and course materials including exam sheet:<br />
+--Admin and Tutor posts important resourse (books and exam sheet) with short description attached.<br />
 --these resourses will be accesed(Read) by any one, the owner of the post can Delete, and Update it.
-2 if the user role is Tutor, then he can create a class (classes ) any time and see the dashboard. after students apply and join his class, he can create a chatroom inside the dashboard that serve as a communication in that class. all the resourse posted by this tutor to the platform will be fetched and displayed to his class dashboard. plus he can upload other materials(like assignment) exclusively to his class dashboard. messages posted in the chatroom can be deleted or updated either by the tutor or the one who post it.
+2. if the user role is Tutor, then he can create a class (classes ) any time and see the dashboard. after students apply and join his class, he can create a chatroom inside the dashboard that serve as a communication in that class. all the resourse posted by this tutor to the platform will be fetched and displayed to his class dashboard. plus he can upload other materials(like assignment) exclusively to his class dashboard. messages posted in the chatroom can be deleted or updated either by the tutor or the one who post it.
 
 
 Group Members
