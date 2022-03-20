@@ -26,7 +26,7 @@ Find the tutors list and read the information about them.
 
 Group Members
 
-<pre>Name                ID                 SECTION</pre><pre>
+<pre>Name                ID                 SECTION
 1. Kaleab Tekalign    -> UGR/3664/12 ->      2
 2. Gizaw Dagne        -> UGR/6640/12 ->      2
 3. Metsnanat Asfaw    -> UGR/7631/12 ->      1
