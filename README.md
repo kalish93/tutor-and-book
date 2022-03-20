@@ -15,7 +15,7 @@ Privilege restricted to Tutor:   Creating the study group chat room
 
 The user with the parent role, which we refer to as the person seeking the tutorial service, has the ability to search for tutors, read information, share books, view book collections, and use the group study chat room that the tutor has created.
 
-##Main Business features:
+## Main Business features:
 1. Creating a study group chat room where they can delete members and change the name of the group.
 2. Share book with description on the uses in which they can delete the book, and update the description (required to provide description).
 
@@ -26,7 +26,7 @@ Find the tutors list and read the information about them.
 
 Group Members
 
-# Name                #ID
+#Name                #ID
 1. Kaleab Tekalign -> UGR/3664/12 ->  section 2
 2. Gizaw Dagne     -> UGR/6640/12 ->   section 2
 3. Metsnanat Asfaw -> UGR/7631/12 ->   section 1
