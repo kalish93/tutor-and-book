@@ -1,8 +1,8 @@
-#Project Title: Tutor-and-book sharing app
+# Project Title: Tutor-and-book sharing app
 
 This is an app that contains experienced tutors and the best study materials. Our tutor app connects tutors with parents looking for a tutor for their children (or students looking for a tutor for themselves) and allows people to access softcopies of books that help them on their learning journey along with a description. This app assists parents in finding the best tutor for their child based on their financial ability and location. A tutor account can be obtained by applying to the admin and being verified as to whether or not the applicant is qualified. The tutor has the ability to form a group/chat room for the students in which he/she teaches in which they can discuss and receive material from the tutor. The user with the parent role can search for tutors and choose what they believe is best for their child. The parents can then obtain the tutor's complete profile and contact him/her using the information provided. In addition the parents can get books with its description.
 
-#Authentication/Authorization features:
+## Authentication/Authorization features:
 
 Roles:
 1.	Admin 
@@ -26,7 +26,7 @@ Find the tutors list and read the information about them.
 
 Group Members
 
-#Name                #ID
+# Name                #ID
 1. Kaleab Tekalign -> UGR/3664/12 ->  section 2
 2. Gizaw Dagne     -> UGR/6640/12 ->   section 2
 3. Metsnanat Asfaw -> UGR/7631/12 ->   section 1
