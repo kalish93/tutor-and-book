@@ -1,9 +1,6 @@
-
-from distutils.command.upload import upload
-import email
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from datetime import date
+
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
