@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-=======
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-
->>>>>>> 2403bff9775f78f28712c5c9824dfff9467cd42f
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
