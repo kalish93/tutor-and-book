@@ -1,9 +1,6 @@
 
-from distutils.command.upload import upload
-import email
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from datetime import date
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
@@ -23,7 +20,8 @@ class Tutor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField( max_length=254)
+    email = models.EmailField( max_length=254,unique=True)
+    phone_number = models.CharField(max_length=100)
 
 
 
@@ -34,7 +32,7 @@ class Book(models.Model):
     publication_year = models.DateField()
     edition = models.CharField(max_length=20)
     description = models.TextField()
-    book = models.FileField(upload_to='documents/')
+    book = models.FileField(upload_to='documents/',null=True,blank=True)
     
 
 class Course(models.Model):
