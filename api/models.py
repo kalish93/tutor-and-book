@@ -1,6 +1,6 @@
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
 
 class User(AbstractUser):
     class Types(models.TextChoices):
@@ -47,6 +47,7 @@ class TutorMore(models.Model):
 
 
 class Tutor(models.Model):
+<<<<<<< HEAD
     base_type = User.Types.TUTOR
     objects = TutorManger()
 
@@ -56,6 +57,13 @@ class Tutor(models.Model):
 
     class Meta:
         proxy = True
+=======
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField( max_length=254,unique=True)
+    phone_number = models.CharField(max_length=100)
+>>>>>>> 28b890d4889a56e9ae9963a05e33b9a28f8bcd0c
 
 
 
@@ -66,7 +74,11 @@ class Book(models.Model):
     publication_year = models.DateField()
     edition = models.CharField(max_length=20)
     description = models.TextField()
+<<<<<<< HEAD
     # book = models.FileField(upload_to='documents/')
+=======
+    book = models.FileField(upload_to='documents/',null=True,blank=True)
+>>>>>>> 28b890d4889a56e9ae9963a05e33b9a28f8bcd0c
     
 
 class Course(models.Model):
