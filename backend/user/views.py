@@ -12,6 +12,7 @@ from rest_framework import generics, status,permissions
 # Create your views here.
 
 class StudentSignUpView(generics.GenericAPIView):
+    permission_classes =[permissions.AllowAny,]
     serializer_class = StudentSignUpSerializer
     def post(self,request,*args,**kwargs):
         serializer=self.get_serializer(data=request.data)
@@ -24,6 +25,7 @@ class StudentSignUpView(generics.GenericAPIView):
             "message":"account created sucessfully"
         })
 class TutorSignUpView(generics.GenericAPIView):
+    permission_classes=[permissions.AllowAny]
     serializer_class = TutorSignUpSerializer
     def post(self,request,*args,**kwargs):
         serializer=self.get_serializer(data=request.data)
@@ -82,6 +84,7 @@ class TutorView(APIView):
 class TutorUpdateDelete(APIView):
     
     # permission_classes = [TutorListPermission]
+    permission_classes = [permissions.AllowAny]
     def get_tutor(request,pk):
         try:
             return Tutor.objects.get(id=pk)
@@ -188,3 +191,10 @@ class UserUpdateDelete(APIView):
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
+class TutorsListView(APIView):
+    permission_classes = [permissions.AllowAny,]
+    def get(self,request):
+        user = User.objects.filter(is_tutor=True)   
+        serializer =UserSerializer(user , many = True)
+        return Response(serializer.data)

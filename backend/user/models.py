@@ -23,6 +23,7 @@ class Tutor(models.Model):
     user = models.OneToOneField(User,related_name='tutor',on_delete=models.CASCADE)
     qulification = models.TextField()
     adress = models.CharField(max_length=255)
+    # is_tutor = models.BooleanField(default=True)
     def __str__(self):
         return self.user.username
 
@@ -32,6 +33,7 @@ class Student(models.Model):
     user = models.OneToOneField(User,related_name='student',on_delete=models.CASCADE)
     birth_date = models.DateField(null=True,blank=True)
     grade = models.CharField(max_length=50,null=True,blank=True)
+    # is_tutor = models.BooleanField(default=True)
     # tutor = models.ManyToManyField(Tutor,blank=True)
     def __str__(self):
         return self.user.username
