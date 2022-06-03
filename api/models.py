@@ -32,12 +32,6 @@ class StudentMore(models.Model):
     grade = models.CharField(max_length=50,null=True,blank=True)
 
 
-class Student(models.Model):
-    base_type = User.Types.STUDENT
-    objects = StudentManger()
-
-    class Meta:
-        proxy = True
 
 class TutorMore(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
