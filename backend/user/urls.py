@@ -1,7 +1,5 @@
 from django.urls import path
-
-from books import views
-from .views import *
+from . views import StudentOnlyView , StudentSignUpView , LogoutView , TutorOnlyView
 from rest_framework_simplejwt.views import TokenObtainPairView , TokenRefreshView ,TokenVerifyView
 
 urlpatterns=[

@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 # from users.permissions import IsStudent, IsTutor, TutorListPermission
 from rest_framework.response import Response
 
-from users.serializers import *
+from . serializers import *
 from .models import *
 from .serializers import *
 from rest_framework.views import APIView
