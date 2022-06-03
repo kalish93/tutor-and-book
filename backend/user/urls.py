@@ -1,5 +1,9 @@
 from django.urls import path
+<<<<<<< HEAD
 from . views import StudentOnlyView, StudentSignUpView , LogoutView , TutorOnlyView
+=======
+from . views import StudentOnlyView , StudentSignUpView , LogoutView , TutorOnlyView
+>>>>>>> 536a9a4b9c645d22ea8232a1c14fc60c458c2532
 from rest_framework_simplejwt.views import TokenObtainPairView , TokenRefreshView ,TokenVerifyView
 urlpatterns=[
     path('signup/student/',StudentSignUpView.as_view()),

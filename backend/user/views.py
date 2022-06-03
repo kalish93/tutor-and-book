@@ -2,8 +2,14 @@
 from rest_framework.decorators import api_view
 # from users.permissions import IsStudent, IsTutor, TutorListPermission
 from rest_framework.response import Response
+<<<<<<< HEAD
 from .models import Student
 from .models import Tutor
+=======
+
+from . serializers import *
+from .models import *
+>>>>>>> 536a9a4b9c645d22ea8232a1c14fc60c458c2532
 from .serializers import *
 from rest_framework.views import APIView
 from rest_framework import generics, status,permissions

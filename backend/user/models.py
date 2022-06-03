@@ -4,7 +4,7 @@ from django.conf import settings
 from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser
 # from rest_framework.authtoken.models import Token
-from rest_framework import permissions
+# from rest_framework import permissions
 
 
 class User(AbstractUser):
