@@ -13,7 +13,8 @@ class homePage extends StatefulWidget{
 class homePageState extends State<homePage>{
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child:Container(
+    return Scaffold(
+    body:SafeArea(child:Container(
 
 color: Colors.white,
  child:Column(children: [Container(
@@ -29,9 +30,13 @@ color: Colors.white,
        bottomRight: Radius.circular(100),
      ),color: Colors.blue,
    ),
-   child: Align(
-     alignment: Alignment.center,child: Text("Tutor + Book" , style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)
-   ),
+   child: Center(
+    //  alignment: Alignment.center,
+     child: Column(
+       children: [
+      Text("Tutor + Book" , style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 50),),
+      Text('\"A place where you can find best books and tutors\"')
+ ])),
 
  ),Container(height:30),
 Row(
@@ -95,7 +100,7 @@ Row(
 ],
  )
   )
-    );
+    ));
 
   }
 
