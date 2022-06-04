@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'book_list.dart';
-
+import 'package:go_router/go_router.dart';
 class homePage extends StatefulWidget{
   @override
   homePageState createState() => homePageState();
@@ -30,13 +30,14 @@ color: Colors.white,
        bottomRight: Radius.circular(100),
      ),color: Colors.blue,
    ),
-   child: Center(
-    //  alignment: Alignment.center,
-     child: Column(
+   child: Align(
+     alignment: Alignment.center,
+     child: Container(
+       child: Column(
        children: [
       Text("Tutor + Book" , style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 50),),
       Text('\"A place where you can find best books and tutors\"')
- ])),
+ ]))),
 
  ),Container(height:30),
 Row(
@@ -45,7 +46,9 @@ Row(
     child: InkWell(
       focusColor:
       Colors.blue,
-      onTap: (){},
+      onTap: (){
+        context.go('/books');
+      },
       splashColor: Colors.green,
       child: Center(
         child: Column(
@@ -61,7 +64,9 @@ Row(
     ),
   ),Card(
     child: InkWell(
-      onTap: (){},
+      onTap: (){
+        context.go('/tutors');
+      },
       splashColor: Colors.green,
       child: Center(
         child: Column(
@@ -79,7 +84,7 @@ Row(
   ),Card(
     child: InkWell(
       onTap: (){
-        Navigator.push(context,MaterialPageRoute(builder: (context)=>BooksList()));
+        // Navigator.push(context,MaterialPageRoute(builder: (context)=>BooksList()));
       },
       splashColor: Colors.green,
       child: Center(
@@ -88,7 +93,7 @@ Row(
           children: [
             Icon(
                 Icons.add_task,size:60.0
-            ),Text("Tutor Dashboard", style: const TextStyle(fontWeight: FontWeight.bold)
+            ),Text("Dashboard", style: const TextStyle(fontWeight: FontWeight.bold)
             ),
           ],
         ),

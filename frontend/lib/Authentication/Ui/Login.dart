@@ -4,6 +4,7 @@ import 'package:test/books/screens/homePage.dart';
 import '../bloc/auth_bloc.dart';
 import '../bloc/auth_event.dart';
 import '../bloc/auth_state.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({Key? key}) : super(key: key);
@@ -104,9 +105,10 @@ class _LoginUiState extends State<LoginUi> {
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is UserLoginSuccessState) {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>homePage()));
+            // Navigator.push(context,MaterialPageRoute(builder: (context)=>homePage()));
           // }else if(state is AdminLoginSuccessState){
           //    Navigator.pushNamed(context ,'/addContacts');
+          context.go('/home');
           }
         },
         child: Center(

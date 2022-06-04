@@ -38,7 +38,7 @@ class AuthBloc extends Bloc<AuthEvents, AuthState> {
   //     }
 
  on<StartEvent>((event,emit) async{
-   pref =await SharedPreferences.getInstance();
+  //  pref =await SharedPreferences.getInstance();
     emit(LoginInitState());
   });
   on<LoginButtenPressed>((event, emit) async{
