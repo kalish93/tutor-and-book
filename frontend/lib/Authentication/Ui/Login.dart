@@ -13,7 +13,7 @@ class LoginUi extends StatefulWidget {
 }
 
 class _LoginUiState extends State<LoginUi> {
-  TextEditingController email = TextEditingController();
+  TextEditingController usernames = TextEditingController();
   TextEditingController password = TextEditingController();
 
   late AuthBloc authBloc;
@@ -46,17 +46,17 @@ class _LoginUiState extends State<LoginUi> {
       }
     });
     final username = TextField(
-      controller: email,
-      keyboardType: TextInputType.emailAddress,
+      controller: usernames,
+      keyboardType: TextInputType.name,
       autofocus: false,
       decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.email),
+          prefixIcon: const Icon(Icons.person),
           filled: true,
           fillColor: const Color(0x0fffffdd),
           hintStyle: const TextStyle(
             color: Color(0x0ff66666),
           ),
-          hintText: 'Email',
+          hintText: 'Username',
           contentPadding: const EdgeInsets.fromLTRB(200.0, 10.0, 195.0, 10.0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
@@ -90,7 +90,7 @@ class _LoginUiState extends State<LoginUi> {
           //TODO : login here...
 
           authBloc.add(
-            LoginButtenPressed(email: email.text, password: password.text));
+            LoginButtenPressed(email: usernames.text, password: password.text));
         },
         child: const Text(
           'Log In',
@@ -121,7 +121,7 @@ class _LoginUiState extends State<LoginUi> {
               username,
               const SizedBox(height: 20.0),
               pass,
-              const SizedBox(height: 24.0),
+              const SizedBox(height: 24.0, width: 10,),
               loginButton,
             ],
           ),

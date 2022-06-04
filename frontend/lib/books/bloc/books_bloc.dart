@@ -16,6 +16,7 @@ class BookBloc extends Bloc<BookEvent, BookState> {
   BookBloc({required this.bookRepository}) : super(BookLoading()) {
     on<BookLoad>((event, emit) async {
       emit(BookLoading());
+      print('hello');
       try {
         final books = await bookRepository.fetchAll();
         emit(BookOperationSuccess(books));

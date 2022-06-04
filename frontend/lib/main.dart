@@ -32,6 +32,7 @@ class Auth extends StatelessWidget {
         routes: {
           '/': (context) => const LoginUi(),
           '/contact': (context) => const Contact(),
+          '/books': (context)=> const BooksList(),
           '/addContact': (context) => const AddContact(),
         },
       )
