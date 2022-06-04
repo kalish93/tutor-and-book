@@ -12,7 +12,7 @@ class PersonalDrawer extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            // enter the name of the parent here
+            
             accountName: Text("parent1"),
             accountEmail: Text("email"),
             currentAccountPicture: CircleAvatar(
@@ -26,10 +26,7 @@ class PersonalDrawer extends StatelessWidget {
               )
                 
               ),
-              // decoration:BoxDecoration(
-              //   image: DecorationImage(
-              //     image: NetworkImage(''))
-              // )
+              
             ),
         ListTile(
           leading:Icon(Icons.logout),
