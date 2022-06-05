@@ -1,17 +1,20 @@
 
+from multiprocessing import Manager
 from rest_framework.decorators import api_view
 # from users.permissions import IsStudent, IsTutor, TutorListPermission
 from rest_framework.response import Response
-from .models import Student
-from .models import Tutor
-from .serializers import *
+from user.permissions import *
+
+from user.serializers import *
+from .models import *
+# from rest_framework.authtoken.views import ObtainAuthToken 
+# from api.serializers import *
 from rest_framework.views import APIView
 from rest_framework import generics, status,permissions
 # from rest_framework.permissions import IsAdminUser, DjangoModelPermissionsOrAnonReadOnly
 # Create your views here.
 
 class StudentSignUpView(generics.GenericAPIView):
-    permission_classes =[permissions.AllowAny,]
     serializer_class = StudentSignUpSerializer
     def post(self,request,*args,**kwargs):
         serializer=self.get_serializer(data=request.data)
@@ -24,7 +27,6 @@ class StudentSignUpView(generics.GenericAPIView):
             "message":"account created sucessfully"
         })
 class TutorSignUpView(generics.GenericAPIView):
-    permission_classes=[permissions.AllowAny]
     serializer_class = TutorSignUpSerializer
     def post(self,request,*args,**kwargs):
         serializer=self.get_serializer(data=request.data)
@@ -37,7 +39,6 @@ class TutorSignUpView(generics.GenericAPIView):
             "message":"account created sucessfully"
         })
         
-    
 
 class LogoutView(APIView):
     def post(self,request,format=None):
@@ -46,7 +47,7 @@ class LogoutView(APIView):
 
 
 class TutorOnlyView(generics.GenericAPIView):
-    # permission_classes = [permissions.IsAuthenticated&IsTutor]
+    permission_classes = [permissions.IsAuthenticated or IsTutor]
     serializer_class = UserSerializer
 
     def get_object(self):
@@ -55,7 +56,7 @@ class TutorOnlyView(generics.GenericAPIView):
 
 
 class StudentOnlyView(generics.GenericAPIView):
-    # permission_classes = [permissions.IsAuthenticated&IsStudent]
+    permission_classes = [permissions.IsAuthenticated&IsStudent]
     serializer_class = UserSerializer
 
     def get_object(self):
@@ -66,11 +67,14 @@ class StudentOnlyView(generics.GenericAPIView):
 
 class TutorView(APIView):
     
-    # permission_classes = [TutorListPermission]
+    permission_classes = [TutorPermission]
     def get(self,request):
-        tutors = Tutor.objects.all()    
-        serializer =TutorSerializer(tutors , many = True)
-        return Response(serializer.data)    
+        tutors = Tutor.objects.all()   
+        user_tutors = User.objects.filter(is_tutor = True)  
+        serializer = UserSerializer(user_tutors,many =True )
+        tutors = TutorSerializer(tutors,many = True)
+        
+        return Response(serializer.data) or Response(tutors.data)
     
     def post(self,request):
         
@@ -82,8 +86,7 @@ class TutorView(APIView):
     
 class TutorUpdateDelete(APIView):
     
-    # permission_classes = [TutorListPermission]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [TutorPermission]
     def get_tutor(request,pk):
         try:
             return Tutor.objects.get(id=pk)
@@ -110,7 +113,7 @@ class TutorUpdateDelete(APIView):
 
 
 class StudentView(APIView):
-    
+    permission_classes = [StudentPermission]
     def get(self,request):
         student = Student.objects.all()    
         serializer =StudentSerializer(student , many = True)
@@ -124,7 +127,7 @@ class StudentView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class StudentUpdateDelete(APIView):
-    
+    permission_classes = [StudentPermission]
     def get_tutor(request,pk):
         try:
             return Student.objects.get(id=pk)
@@ -152,6 +155,8 @@ class StudentUpdateDelete(APIView):
 
 
 class UserView(APIView):
+    permission_classes = [UserPermission]
+
     def get(self,request):
         user = User.objects.all()    
         serializer =UserSerializer(user , many = True)
@@ -165,7 +170,8 @@ class UserView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class UserUpdateDelete(APIView):
-    
+    permission_classes = [UserPermission]
+
     def get_user(request,pk):
         try:
             return User.objects.get(id=pk)
@@ -185,15 +191,9 @@ class UserUpdateDelete(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    
     def delete(self,request,pk):
         user = User.objects.get(id=pk)
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
-class TutorsListView(APIView):
-    permission_classes = [permissions.AllowAny,]
-    def get(self,request):
-        user = User.objects.filter(is_tutor=True)   
-        serializer =UserSerializer(user , many = True)
-        return Response(serializer.data)
