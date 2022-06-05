@@ -2,20 +2,22 @@ import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test/books/bloc/bloc.dart';
-import 'package:test/books/books.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:test/books/screens/homePage.dart';
-import 'package:test/tutor/index.dart';
-import 'Authentication/Ui/Login.dart';
-import 'Authentication/Ui/get_contacts.dart';
-import 'Authentication/Ui/post_contacts.dart';
-import 'Authentication/bloc/auth_bloc.dart';
-import 'Authentication/bloc/auth_state.dart';
-import 'Authentication/repository/auth_repo.dart';
+import '/presentation/auth/Login.dart';
+import '/presentation/book/book_list.dart';
+import '/presentation/book/homePage.dart';
+import '/presentation/tutor/tutors_list.dart';
 import 'package:go_router/go_router.dart';
 
-// void main() => runApp(const Auth());
+import 'application/auth/login/auth_bloc.dart';
+import 'application/auth/login/auth_state.dart';
+import 'application/book/books_bloc.dart';
+import 'application/tutor/tutor_bloc.dart';
+import 'infrastructure/auth/auth_repo.dart';
+import 'infrastructure/book/book_data.dart';
+import 'infrastructure/book/book_repository.dart';
+import 'infrastructure/tutor/tutor_provider.dart';
+import 'infrastructure/tutor/tutor_repository.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,40 +46,14 @@ class Auth extends StatelessWidget {
       GoRoute(path: '/books',
       name: '/books',
       builder: (context,state)=>BooksList()
+    
+    
       ),
       GoRoute(path: '/tutors',
       name: 'tutors',
       builder: (context,state)=>TutorList()
       )
       ]);
-
-        // routes: [
-        //   GoRoute(
-        //     path:':id',
-        //     name: "post-detail",
-        //     builder: (context, state){
-        //       final pid = int.parse(state.params['id']!);
-        //       return PostDetail(id: pid);},
-        //       routes: [
-        //       GoRoute(
-        //         path:'donate/:post',
-        //         name: 'donate',
-        //         builder: (context, state) {
-        //           final pid = (int.parse(state.params['id']!));
-        //           final post = state.params['post']!;
-        //           return Donation_screen(pid: pid, post: post);
-        //         },
-        //         // routes:[
-        //         //   GoRoute(path: 'thanks',
-        //         //   name:'thankYou',
-        //         //   builder: (context, state) => Thankyou_Screen())
-        //         // ]
-        //          )
-        //          ]
-        //          ),
-        // ]
-        // ]
-        // ),
 
   @override
   Widget build(BuildContext context) {
@@ -89,18 +65,7 @@ class Auth extends StatelessWidget {
             create: (context) => BookBloc( bookRepository: BookRepository(BookDataProvider()),)),
         BlocProvider<TutorBloc>(
           create: (context)=>TutorBloc(tutorRepository: TutorRepository(TutorDataProvider())),)
-
-
-        //AuthBloc(AuthRepository())//LoginInitState(),AuthRepository()))
       ],
-      // child: MaterialApp(
-      //   initialRoute: '/',
-      //   routes: {
-      //     '/': (context) => const LoginUi(),
-      //     '/contact': (context) => const Contact(),
-      //     '/books': (context)=> const BooksList(),
-      //     '/addContact': (context) => const AddContact(),
-      //   },
       child:  MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Tutor + Book',
